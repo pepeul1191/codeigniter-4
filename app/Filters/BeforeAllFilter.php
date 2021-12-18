@@ -11,7 +11,9 @@ class BeforeAllFilter implements FilterInterface
   public function before(RequestInterface $request, $arguments = null)
   {
     // Do something here
-    echo 'XD';
+    if($_ENV['CI_ENVIRONMENT'] == 'production'){
+
+    }
   }
 
   public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

@@ -461,4 +461,11 @@ class App extends BaseConfig
      * @var bool
      */
     public $CSPEnabled = false;
+
+    function __construct() {
+        parent::__construct();
+        if($_ENV['CI_ENVIRONMENT'] == 'production'){
+            $this->baseURL = 'https://softweb.pe/XD';
+        }
+    }
 }
