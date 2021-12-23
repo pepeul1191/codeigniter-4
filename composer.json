@@ -25,7 +25,8 @@
         },
         "classmap": [
 		    "vendor/j4mie/idiorm/idiorm.php",
-		    "vendor/j4mie/paris/paris.php"
+		    "vendor/j4mie/paris/paris.php",
+            "app/Models"
 		],
         "exclude-from-classmap": [
             "**/Database/Migrations/**"
