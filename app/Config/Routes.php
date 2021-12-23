@@ -35,6 +35,9 @@ $routes->add('/', 'Home::index', ['filter' => 'GET']);
 $routes->add('/demo', 'Home::demo', ['filter' => 'GET']);
 $routes->add('/specialism/list', 'Specialism::list', ['filter' => 'GET']);
 
+$routes->add('/error/access/(:num)', 'Error::access/$1', ['filter' => 'GET']);
+$routes->set404Override('App\Controllers\Error::go404');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
