@@ -9,7 +9,6 @@ class Specialism extends BaseController
     $resp = [];
     $status = 200;
     try {
-      //\App\Models\Specialism;
       $rs = \Model::factory('App\\Models\\SpeciailismModel', 'classroom')
         ->find_array();
       $resp = json_encode($rs);

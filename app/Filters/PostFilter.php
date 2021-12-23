@@ -6,18 +6,20 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class BeforeAllFilter implements FilterInterface
+class PostFilter implements FilterInterface
 {
   public function before(RequestInterface $request, $arguments = null)
   {
-    // Do something here
-    if($_ENV['CI_ENVIRONMENT'] == 'production'){
-
+    if($request->getMethod() != 'post'){
+      $response = \Config\Services::response();
+      $response->setStatusCode(403);
+      $response->setBody("HTTP 403 Acceso Prohibido");
+      return $response;
     }
   }
 
   public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
   {
-    // Do something here
+
   }
 }

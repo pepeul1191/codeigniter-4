@@ -20,6 +20,8 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'beforeAll' => \App\Filters\BeforeAllFilter::class,
+        'GET' => \App\Filters\GetFilter::class,
+        'POST' => \App\Filters\PostFilter::class,
     ];
 
     /**
@@ -49,7 +51,8 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $methods = [];
+    public $methods = [
+    ];
 
     /**
      * List of filter aliases that should run on any
