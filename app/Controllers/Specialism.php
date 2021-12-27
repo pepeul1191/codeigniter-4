@@ -12,7 +12,7 @@ class Specialism extends BaseController
       $rs = \Model::factory('App\\Models\\SpeciailismModel', 'classroom')
         ->find_array();
       $resp = json_encode($rs);
-    }catch (Exception $e) {
+    }catch (\Exception $e) {
       $status = 500;
       $resp = json_encode(['ups', $e->getMessage()]);
     }
