@@ -466,6 +466,10 @@ class App extends BaseConfig
         parent::__construct();
         if($_ENV['CI_ENVIRONMENT'] == 'production'){
             $this->baseURL = 'https://softweb.pe/XD';
+            $this->staticURL = 'https://softweb.pe/public/';
+        }else if($_ENV['CI_ENVIRONMENT'] == 'development'){
+            $this->baseURL = 'http://localhost:8080/';
+            $this->staticURL = '/public/';
         }
     }
 }

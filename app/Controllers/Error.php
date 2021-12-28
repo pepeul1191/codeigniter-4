@@ -9,6 +9,11 @@ class Error extends BaseController
 {
   use ResponseTrait;
 
+  public function __construct()
+  {
+    // pass
+  }
+
   public function go404()
   {
     if($this->request->getMethod() == 'get'){
@@ -17,6 +22,7 @@ class Error extends BaseController
     }else{
       $this->response->setStatusCode(404);
       echo '404: Recurso no encontrado';
+      exit();
     }
   }
 
@@ -42,6 +48,7 @@ class Error extends BaseController
           'icon' => 'fa fa-code-fork'
         ];
         $status = 500;
+        break;
       case '505':
         $data = [
           'number' => 505, 
@@ -50,6 +57,7 @@ class Error extends BaseController
           'icon' => 'fa fa-ban'
         ];
         $status = 501;
+        break;
       case '8080':
         $data = [
           'number' => 8080, 
@@ -58,6 +66,7 @@ class Error extends BaseController
           'icon' => 'fa fa-clock-o'
         ];
         $status = 502;
+        break;
       default:
         $data = [
           'number' => 404,
@@ -68,14 +77,20 @@ class Error extends BaseController
         $status = 404;
         break;
     }
+    // response
+    helper('Helpers\error');
     $locals = [
+      'title' => 'Error',
+      'href' => '/error/access',
       'constants' => $this->constants,
       'number' => $data['number'],
       'message' => $data['message'],
       'description' => $data['description'],
       'icon' => $data['icon'],
+      'stylesheets' => stylesheetsAccess($this->constants),
+      'javascripts' => [],
     ];
-    $this->response->setStatusCode(404);
+    $this->response->setStatusCode($status);
     return view('404', $locals);
   }
 }
