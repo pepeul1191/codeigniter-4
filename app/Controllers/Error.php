@@ -20,7 +20,7 @@ class Error extends BaseController
       header('Location: ' . '/error/access/404');
       exit();
     }else{
-      $this->response->setStatusCode(404);
+      http_response_code(404);
       echo '404: Recurso no encontrado';
       exit();
     }

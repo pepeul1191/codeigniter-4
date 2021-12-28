@@ -32,6 +32,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->add('/', 'Home::index', ['filter' => 'GET']);
+$routes->add('/master-data/location','Home::index', ['filter' => 'GET']); 
+$routes->add('/master-data/specialism','Home::index', ['filter' => 'GET']); 
+$routes->add('/coa/dentist','Home::index', ['filter' => 'GET']); 
+$routes->add('/coa/dentist/edit/(:num)','Home::index', ['filter' => 'GET']); 
+$routes->add('/coa/dentist/add','Home::index', ['filter' => 'GET']);
+$routes->add('/coa/branch','Home::index', ['filter' => 'GET']); 
+$routes->add('/coa/branch/edit/(:num)','Home::index', ['filter' => 'GET']); 
+$routes->add('/coa/branch/add','Home::index', ['filter' => 'GET']);
+
 $routes->add('/demo', 'Home::demo', ['filter' => 'GET']);
 $routes->add('/specialism/list', 'Specialism::list', ['filter' => 'GET']);
 
