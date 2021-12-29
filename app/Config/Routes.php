@@ -31,21 +31,29 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->add('/', 'Home::index', ['filter' => 'GET']);
-$routes->add('/master-data/location','Home::index', ['filter' => 'GET']); 
-$routes->add('/master-data/specialism','Home::index', ['filter' => 'GET']); 
-$routes->add('/coa/dentist','Home::index', ['filter' => 'GET']); 
-$routes->add('/coa/dentist/edit/(:num)','Home::index', ['filter' => 'GET']); 
-$routes->add('/coa/dentist/add','Home::index', ['filter' => 'GET']);
-$routes->add('/coa/branch','Home::index', ['filter' => 'GET']); 
-$routes->add('/coa/branch/edit/(:num)','Home::index', ['filter' => 'GET']); 
-$routes->add('/coa/branch/add','Home::index', ['filter' => 'GET']);
-
-$routes->add('/demo', 'Home::demo', ['filter' => 'GET']);
-$routes->add('/specialism/list', 'Specialism::list', ['filter' => 'GET']);
+# app
+$routes->get('/', 'Home::index', ['filter' => 'GET']);
+$routes->get('/master-data/location','Home::index', ['filter' => 'GET']); 
+$routes->get('/master-data/specialism','Home::index', ['filter' => 'GET']); 
+$routes->get('/coa/dentist','Home::index', ['filter' => 'GET']); 
+$routes->get('/coa/dentist/edit/(:num)','Home::index', ['filter' => 'GET']); 
+$routes->get('/coa/dentist/add','Home::index', ['filter' => 'GET']);
+$routes->get('/coa/branch','Home::index', ['filter' => 'GET']); 
+$routes->get('/coa/branch/edit/(:num)','Home::index', ['filter' => 'GET']); 
+$routes->get('/coa/branch/add','Home::index', ['filter' => 'GET']);
+# login
+$routes->get('/login','Login::index', ['filter' => 'GET']);
+$routes->get('/login/sign-in', 'Login::index', ['filter' => 'GET']);
+$routes->get('/login/reset-password','Login::index', ['filter' => 'GET']);
+$routes->post('/login','Login::access', ['filter' => 'POST']);
+# session
+$routes->get('/user','Home::user', ['filter' => 'GET']);
+# api rest
+$routes->get('/demo', 'Home::demo', ['filter' => 'GET']);
+$routes->get('/specialism/list', 'Specialism::list', ['filter' => 'GET']);
 $routes->add('/specialism/save', 'Specialism::save', ['filter' => 'POST']);
 
-$routes->add('/error/access/(:num)', 'Error::access/$1', ['filter' => 'GET']);
+$routes->get('/error/access/(:num)', 'Error::access/$1', ['filter' => 'GET']);
 $routes->set404Override('App\Controllers\Error::go404');
 
 /*

@@ -1,5 +1,6 @@
 <script>
-  import 'bootstrap/dist/css/bootstrap.min.css';
+	import 'bootstrap/dist/css/bootstrap.min.css';
+	import 'font-awesome/css/font-awesome.min.css';
   import '../../stylesheets/styles.css';
   import '../../stylesheets/login.css';
   import { onMount } from 'svelte';

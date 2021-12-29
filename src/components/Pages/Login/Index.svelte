@@ -2,13 +2,14 @@
   import { navigate } from 'svelte-routing';
   import { onMount } from 'svelte';
   import queryString from 'query-string';
-
+  import { CSRF } from '../../Stores/csrf.js';
   export let location;
   let queryParams;
   $: queryParams = queryString.parse(location.search);
 
   onMount(() => {
 		console.log('index');  
+    console.log(CSRF);
     console.log(queryParams);
 	});
 </script>
@@ -19,13 +20,12 @@
 
 <form class="form-signin" action="/login" method="post" id="login">
   <h1 class="h3 mb-3 font-weight-normal">Bienvenido</h1>
-  <input type="hidden" name="key" value="value">
   <span class="extraData"></span>
   <!--USER -->
   <label for="user" class="sr-only">User</label>
   <input type="text" id="user" class="form-control" placeholder="Usuario" required="" autofocus="" name="user">
   <!--CSRF -->
-
+  <input type="hidden" id="csrf" class="form-control" required="" autofocus="" name="{CSRF.key}" value="{CSRF.value}">
   <!--PASS -->
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" name="password">

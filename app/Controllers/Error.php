@@ -84,6 +84,7 @@ class Error extends BaseController
       'href' => '/error/access',
       'constants' => $this->constants,
       'number' => $data['number'],
+      'session' => false,
       'message' => $data['message'],
       'description' => $data['description'],
       'icon' => $data['icon'],

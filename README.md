@@ -67,3 +67,5 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 Fuentes:
 
 + https://codeigniter.com/user_guide/general/errors.html
++ https://stackoverflow.com/questions/61499460/codeigniter-4-set-session-variable-session-config-servicessession-globa
++ https://www.codeigniter.com/user_guide/libraries/sessions.html

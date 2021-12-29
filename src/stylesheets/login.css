@@ -97,8 +97,21 @@ body {
 
 button{
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .pull-right{
   float:right;
+}
+
+.sr-only{
+  display: none;
+}
+
+.link-login{
+  margin-top: 20px;
+}
+
+.link-login a, p a {
+  text-decoration: none;
 }
