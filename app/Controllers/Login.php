@@ -41,6 +41,8 @@ class Login extends BaseController
       $this->session->set('status', 'active');
       $this->session->set('user', $user);
       $this->session->set('time', date('Y-m-d H:i:s'));
+      header('Location: ' . '/');
+      exit();
     }else{
       header('Location: ' . '/' . $this->request->getPath() . '?error=user-pass-mismatch');
       exit();

@@ -71,6 +71,23 @@
 				{/if}
 			{/each}
 		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+					<a class="nav-link" href="#home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a>
+			</li>
+			<li class="nav-item">
+					<a class="nav-link" href="#about"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;About</a>
+			</li>
+			<li class="nav-item">
+					<a class="nav-link" href="#projects"><i class="fa fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;Projects</a>
+			</li>
+			<li class="nav-item">
+					<a class="nav-link" href="#experience"><i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>&nbsp;Experience</a>
+			</li>       
+			<li class="nav-item">
+					<a class="nav-link" href="#contact"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Contact</a>
+			</li>                     
+	</ul>
 	</div>
 </nav>
 

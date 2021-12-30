@@ -30,6 +30,14 @@ class Filters extends BaseConfig
             \App\Filters\CsrfApiFilter::class,
             \App\Filters\SessionTrueApiFilter::class
         ],
+        'sessionFalse' => [
+            \App\Filters\GetFilter::class,
+            \App\Filters\SessionFalseFilter::class
+        ],
+        'sessionTrue' => [
+            \App\Filters\GetFilter::class,
+            \App\Filters\SessionTrueFilter::class
+        ],
         'POST' => \App\Filters\PostFilter::class,
     ];
 

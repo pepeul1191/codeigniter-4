@@ -32,19 +32,19 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 # app
-$routes->get('/', 'Home::index', ['filter' => 'GET']);
-$routes->get('/master-data/location','Home::index', ['filter' => 'GET']); 
-$routes->get('/master-data/specialism','Home::index', ['filter' => 'GET']); 
-$routes->get('/coa/dentist','Home::index', ['filter' => 'GET']); 
-$routes->get('/coa/dentist/edit/(:num)','Home::index', ['filter' => 'GET']); 
-$routes->get('/coa/dentist/add','Home::index', ['filter' => 'GET']);
-$routes->get('/coa/branch','Home::index', ['filter' => 'GET']); 
-$routes->get('/coa/branch/edit/(:num)','Home::index', ['filter' => 'GET']); 
-$routes->get('/coa/branch/add','Home::index', ['filter' => 'GET']);
+$routes->get('/', 'Home::index', ['filter' => 'sessionTrue']);
+$routes->get('/master-data/location','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/master-data/specialism','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/coa/dentist','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/coa/dentist/edit/(:num)','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/coa/dentist/add','Home::index', ['filter' => 'sessionTrue']);
+$routes->get('/coa/branch','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/coa/branch/edit/(:num)','Home::index', ['filter' => 'sessionTrue']); 
+$routes->get('/coa/branch/add','Home::index', ['filter' => 'sessionTrue']);
 # login
-$routes->get('/login','Login::index', ['filter' => 'GET']);
-$routes->get('/login/sign-in', 'Login::index', ['filter' => 'GET']);
-$routes->get('/login/reset-password','Login::index', ['filter' => 'GET']);
+$routes->get('/login','Login::index', ['filter' => 'sessionFalse']);
+$routes->get('/login/sign-in', 'Login::index', ['filter' => 'sessionFalse']);
+$routes->get('/login/reset-password','Login::index', ['filter' => 'sessionFalse']);
 $routes->post('/login','Login::access', ['filter' => 'CSRFForm']);
 # session
 $routes->get('/user','Home::user', ['filter' => 'GET']);

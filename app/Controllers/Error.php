@@ -36,7 +36,8 @@ class Error extends BaseController
           'number' => 404,
           'message' => 'Archivo no encontrado',
           'description' => 'La página que busca no se encuentra en el servidor',
-          'icon' => 'fa fa-exclamation-triangle'
+          'icon' => 'fa fa-exclamation-triangle',
+          'hrefError' => '',
         ];
         $status = 404;
         break;
@@ -45,7 +46,8 @@ class Error extends BaseController
           'number' => 501,
           'message' => 'Página en Contrucción',
           'description' => 'Lamentamos el incoveniente, estamos trabajando en ello.',
-          'icon' => 'fa fa-code-fork'
+          'icon' => 'fa fa-code-fork',
+          'hrefError' => '',
         ];
         $status = 500;
         break;
@@ -54,7 +56,8 @@ class Error extends BaseController
           'number' => 505, 
           'message' => 'Acceso restringido',
           'description' => 'Necesita estar logueado.',
-          'icon' => 'fa fa-ban'
+          'icon' => 'fa fa-ban',
+          'hrefError' => 'login',
         ];
         $status = 501;
         break;
@@ -63,7 +66,8 @@ class Error extends BaseController
           'number' => 8080, 
           'message' => 'Tiempo de la sesion agotado',
           'description' => 'Vuelva a ingresar al sistema.',
-          'icon' => 'fa fa-clock-o'
+          'icon' => 'fa fa-clock-o',
+          'hrefError' => '',
         ];
         $status = 502;
         break;
@@ -72,7 +76,8 @@ class Error extends BaseController
           'number' => 404,
           'message' => 'Archivo no encontrado',
           'description' => 'La página que busca no se encuentra en el servidor',
-          'icon' => 'fa fa-exclamation-triangle'
+          'icon' => 'fa fa-exclamation-triangle',
+          'hrefError' => '',
         ];
         $status = 404;
         break;
@@ -88,6 +93,7 @@ class Error extends BaseController
       'message' => $data['message'],
       'description' => $data['description'],
       'icon' => $data['icon'],
+      'hrefError' => $data['hrefError'],
       'stylesheets' => stylesheetsAccess($this->constants),
       'javascripts' => [],
     ];
