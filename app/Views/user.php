@@ -13,5 +13,8 @@
   <h1>Datos de Sesión</h1>
   csrfKey = <?php echo $session->get('csrfKey'); ?> <br>
   csrfValue = <?php echo $session->get('csrfValue'); ?> <br>
+  status = <?php echo $session->get('status'); ?> <br>
+  user = <?php echo $session->get('user'); ?> <br>
+  time = <?php echo $session->get('time'); ?> <br>
 </body>
 </html>

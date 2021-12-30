@@ -4,13 +4,25 @@
   import queryString from 'query-string';
   import { CSRF } from '../../Stores/csrf.js';
   export let location;
+  let message = '';
+  let messageColor = '';
   let queryParams;
   $: queryParams = queryString.parse(location.search);
 
   onMount(() => {
-		console.log('index');  
-    console.log(CSRF);
-    console.log(queryParams);
+		// console.log('index');  
+    // console.log(CSRF);
+    // console.log(queryParams);
+    if(queryParams.error == 'csrf-mismatch'){
+      message = 'Error de autenticación CSRF';
+      messageColor = 'text-danger';
+    }else if(queryParams.error == 'user-pass-mismatch'){
+      message = 'Usuario y contraseña incorrectos';
+      messageColor = 'text-danger';
+    }else{
+      message = '';
+      messageColor = '';
+    }
 	});
 </script>
 
@@ -30,7 +42,7 @@
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" name="password">
   <!--MESSAGE-->
-  <p class="message" style="margin-top:10px;" id="message"></p>
+  <p class="message {messageColor}" style="margin-top:10px;" id="message">{message}</p>
   <!--BUTTON -->
   <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-bottom: 1.5px;">
     Ingresar
@@ -52,5 +64,7 @@
 </form>
 
 <style>
-
+.mt-5 {
+  margin-top: 1.5rem !important;
+}
 </style>

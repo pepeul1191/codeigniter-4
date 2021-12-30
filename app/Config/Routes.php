@@ -45,7 +45,7 @@ $routes->get('/coa/branch/add','Home::index', ['filter' => 'GET']);
 $routes->get('/login','Login::index', ['filter' => 'GET']);
 $routes->get('/login/sign-in', 'Login::index', ['filter' => 'GET']);
 $routes->get('/login/reset-password','Login::index', ['filter' => 'GET']);
-$routes->post('/login','Login::access', ['filter' => 'POST']);
+$routes->post('/login','Login::access', ['filter' => 'CSRFForm']);
 # session
 $routes->get('/user','Home::user', ['filter' => 'GET']);
 # api rest

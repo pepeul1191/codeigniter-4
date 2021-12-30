@@ -20,6 +20,10 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'beforeAll' => \App\Filters\BeforeAllFilter::class,
+        'CSRFForm' => [
+            \App\Filters\PostFilter::class, 
+            \App\Filters\CsrfFormFilter::class
+        ],
         'GET' => \App\Filters\GetFilter::class,
         'POST' => \App\Filters\PostFilter::class,
     ];

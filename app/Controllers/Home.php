@@ -12,6 +12,7 @@ class Home extends BaseController
     $locals = [
       'title' => 'Inicio',
       'href' => '/',
+      'session' => $this->session,
       'constants' => $this->constants,
       'stylesheets' => stylesheetsHome($this->constants),
       'javascripts' => javascriptsHome($this->constants),

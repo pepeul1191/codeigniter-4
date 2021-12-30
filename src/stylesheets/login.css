@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  background: #f1efe2 !important;
+  font-size: 0.85rem !important;
 }
 
 body {
@@ -58,7 +60,7 @@ body {
 }
 
 .text-muted{
-	font-size: 14px;
+	font-size: 12px;
 	text-align: center;
 }
 
@@ -110,8 +112,17 @@ button{
 
 .link-login{
   margin-top: 20px;
+  font-size: 12px;
 }
 
 .link-login a, p a {
   text-decoration: none;
+}
+
+.message{
+  font-size: 12px;
+}
+
+.mt-5 {
+  margin-top: 2rem !important;
 }
