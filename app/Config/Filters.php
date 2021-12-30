@@ -25,6 +25,11 @@ class Filters extends BaseConfig
             \App\Filters\CsrfFormFilter::class
         ],
         'GET' => \App\Filters\GetFilter::class,
+        'GET_CsrfSession' => [
+            \App\Filters\GetFilter::class,
+            \App\Filters\CsrfApiFilter::class,
+            \App\Filters\SessionTrueApiFilter::class
+        ],
         'POST' => \App\Filters\PostFilter::class,
     ];
 

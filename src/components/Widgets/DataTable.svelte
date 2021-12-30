@@ -7,6 +7,7 @@
   import Autocomplete from './Autocomplete.svelte';
   import UploadFile from './UploadFile.svelte';
   import random from '../Helpers/random.js';
+  import { CSRF } from '../Stores/csrf.js';
   import { alertMessage as alertMessageStore} from '../Stores/alertMessage.js';
   export let headers;
   export let data = [];
@@ -35,6 +36,8 @@
       pagination.numberPages = 0;
       pagination.page = 1;
     }
+    console.log(CSRF.key);
+    console.log(CSRF.value);
   });
   
   export const list = () => {
@@ -43,9 +46,15 @@
       queryParams.step = pagination.step;
       queryParams.page = pagination.page;
     }
-    axios.get(urlServices.list, {
-      params: queryParams
-    })
+    axios.get( // url, data, headers
+      urlServices.list, 
+      {
+        params: queryParams,
+        headers:{
+          [CSRF.key]: CSRF.value,
+        }
+      },
+    )
     .then(function (response) {
       data = [];
       var responseData = [];

@@ -50,7 +50,7 @@ $routes->post('/login','Login::access', ['filter' => 'CSRFForm']);
 $routes->get('/user','Home::user', ['filter' => 'GET']);
 # api rest
 $routes->get('/demo', 'Home::demo', ['filter' => 'GET']);
-$routes->get('/specialism/list', 'Specialism::list', ['filter' => 'GET']);
+$routes->get('/specialism/list', 'Specialism::list', ['filter' => 'GET_CsrfSession']);
 $routes->add('/specialism/save', 'Specialism::save', ['filter' => 'POST']);
 
 $routes->get('/error/access/(:num)', 'Error::access/$1', ['filter' => 'GET']);
