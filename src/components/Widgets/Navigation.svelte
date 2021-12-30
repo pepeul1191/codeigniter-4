@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
 	import { navigate } from 'svelte-routing';
-
+	import { getUser } from '../../services/user_service.js';
 	export let items = [];
+	export let user = {};
+	let staticURL = STATIC_URL;
+	let showUser = true;
 
 	onMount(() => {
 		items = [
@@ -16,7 +19,18 @@
 				{name: 'Gestión de Sedes', url: '/coa/branch', active: true}, 
 			]}, 
 		];
+		getUserInfo();
 	});  
+
+	const getUserInfo = () => {
+		getUser().then((resp) => {
+			(resp.data.name != null) ? user.name = resp.data.name : showUser = false;
+			(resp.data.img != null) ? user.img = resp.data.img : user.img = `${staticURL}assets/img/default-user.png`;
+			(resp.data.user != null) ? user.user = resp.data.user : user.user = null;
+		}).catch((resp) =>  {
+			showUser = false;
+		});
+	};
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
@@ -71,23 +85,27 @@
 				{/if}
 			{/each}
 		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-					<a class="nav-link" href="#home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a>
-			</li>
-			<li class="nav-item">
-					<a class="nav-link" href="#about"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;About</a>
-			</li>
-			<li class="nav-item">
-					<a class="nav-link" href="#projects"><i class="fa fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;Projects</a>
-			</li>
-			<li class="nav-item">
-					<a class="nav-link" href="#experience"><i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>&nbsp;Experience</a>
-			</li>       
-			<li class="nav-item">
-					<a class="nav-link" href="#contact"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Contact</a>
-			</li>                     
-	</ul>
+		{#if showUser}
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle user-dropdown" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="{user.img}" class="rounded-circle img-fluid" width="20" height="20">
+						&nbsp;&nbsp;&nbsp;{user.name}
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown06" id="">
+						<li><a class="dropdown-item" href="/user">Editar Datos</a></li>
+						<li><a class="dropdown-item" href="#">Mensajes</a></li>
+						<li><a class="dropdown-item" href="/log-out">Salir</a></li>
+					</ul>
+				</li>
+			</ul>  
+		{:else}
+			<ul class="navbar-nav ml-auto">
+				<li><a class="nav-link" href="/login">
+					<i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ingresar</a>
+				</li>
+			</ul>
+		{/if}         
 	</div>
 </nav>
 
@@ -98,5 +116,9 @@
 
 	.dropdown-toggle:hover{
 		cursor: pointer;
+	}
+
+	.user-dropdown:after{
+		display: none;
 	}
 </style>

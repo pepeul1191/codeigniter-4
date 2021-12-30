@@ -45,9 +45,10 @@ $routes->get('/coa/branch/add','Home::index', ['filter' => 'sessionTrue']);
 $routes->get('/login','Login::index', ['filter' => 'sessionFalse']);
 $routes->get('/login/sign-in', 'Login::index', ['filter' => 'sessionFalse']);
 $routes->get('/login/reset-password','Login::index', ['filter' => 'sessionFalse']);
+$routes->get('/log-out', 'Login::logout', ['filter' => 'sessionTrue']);
 $routes->post('/login','Login::access', ['filter' => 'CSRFForm']);
-# session
-$routes->get('/user','Home::user', ['filter' => 'GET']);
+# user
+$routes->get('/user','User::info', ['filter' => 'GET_CsrfSession']);
 # api rest
 $routes->get('/demo', 'Home::demo', ['filter' => 'GET']);
 $routes->get('/specialism/list', 'Specialism::list', ['filter' => 'GET_CsrfSession']);

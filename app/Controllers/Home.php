@@ -25,17 +25,4 @@ class Home extends BaseController
   {
     echo 'demo';
   }
-
-  public function user()
-  {
-    $status = 200;
-    $locals = [
-      'title' => 'Inicio',
-      'href' => '/login',
-      'constants' => $this->constants,
-      'session' => $this->session,
-    ];
-    $this->response->setStatusCode($status);
-    return view('user', $locals);
-  }
 }

@@ -36,8 +36,6 @@
       pagination.numberPages = 0;
       pagination.page = 1;
     }
-    console.log(CSRF.key);
-    console.log(CSRF.value);
   });
   
   export const list = () => {

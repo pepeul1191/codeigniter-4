@@ -40,6 +40,8 @@ class Login extends BaseController
       $this->session->set('csrfValue', \App\Libraries\RandomLib::stringNumber(30));
       $this->session->set('status', 'active');
       $this->session->set('user', $user);
+      $this->session->set('name', 'Pepe Valdivia');
+      $this->session->set('img', $this->constants->{'staticURL'} . 'assets/img/default-user.png');
       $this->session->set('time', date('Y-m-d H:i:s'));
       header('Location: ' . '/');
       exit();
@@ -52,5 +54,12 @@ class Login extends BaseController
   public function demo()
   {
     echo 'demo';
+  }
+
+  public function logout()
+  {
+    $this->session->destroy();
+    header('Location: ' . '/login');
+    exit();
   }
 }

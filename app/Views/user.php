@@ -15,6 +15,7 @@
   csrfValue = <?php echo $session->get('csrfValue'); ?> <br>
   status = <?php echo $session->get('status'); ?> <br>
   user = <?php echo $session->get('user'); ?> <br>
+  name = <?php echo $session->get('name'); ?> <br>
   time = <?php echo $session->get('time'); ?> <br>
 </body>
 </html>
